@@ -1,12 +1,20 @@
-import { Observable, Subscription } from 'rxjs'
+import { Observable, ReplaySubject, Subscription } from 'rxjs'
 import { map, tap } from 'rxjs/operators'
 import { render, VirtualDOM } from '@youwol/flux-view'
 
 export namespace ContextMenu {
-    export abstract class State {
-        content$: Observable<{ content: VirtualDOM; event: MouseEvent }>
+    export type Event = 'displayed' | 'removed'
 
-        constructor(public readonly triggerEvent$: Observable<MouseEvent>) {
+    export abstract class State {
+        public readonly content$: Observable<{
+            content: VirtualDOM
+            event: MouseEvent
+        }>
+        public readonly event$ = new ReplaySubject<Event>(1)
+
+        protected constructor(
+            public readonly triggerEvent$: Observable<MouseEvent>,
+        ) {
             this.content$ = triggerEvent$.pipe(
                 tap((ev) => ev.preventDefault()),
                 map((ev) => {
@@ -52,9 +60,11 @@ export namespace ContextMenu {
                         },
                         children: [content],
                         onclick: () => {
+                            this.state.event$.next('removed')
                             div.remove()
                         },
                         oncontextmenu: (ev: MouseEvent) => {
+                            this.state.event$.next('removed')
                             div.remove()
                             ev.preventDefault()
                         },
@@ -62,9 +72,7 @@ export namespace ContextMenu {
                     let div = render(wrapped)
 
                     document.body.appendChild(div)
-                    /*div.onmouseleave = () => {
-                        div.remove()
-                    }*/
+                    this.state.event$.next('displayed')
                 }),
             )
         }
