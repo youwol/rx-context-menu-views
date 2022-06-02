@@ -1173,7 +1173,7 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@youwol/flux-view@^0.1.0":
+"@youwol/flux-view@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@youwol/flux-view/-/flux-view-0.1.1.tgz#9349e1806e60e846b137ba36d5933aff949e41c8"
   integrity sha512-s0L/SFDGNf72thhwfXe/vU5TwoQWMvbIFhsjoWV2kBIiRviCUWPJSzJpjCiF9p0HjQ2zVxSL0xs8+Cd7x3teWw==
