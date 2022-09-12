@@ -1,5 +1,2 @@
-/*
- * Public API Surface of flux-lib-core
- */
-
- export {ContextMenu} from './lib/context-menu.view'
+export { ContextMenu } from './lib/context-menu.view'
+export { setup } from './auto-generated'
