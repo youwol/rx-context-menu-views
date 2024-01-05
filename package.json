@@ -3,8 +3,8 @@
     "description": "Context-menu using rx-vdom.",
     "version": "0.2.0-wip",
     "author": "greinisch@youwol.com",
-    "homepage": "https://github.com/youwol/fv-context-menu#README.md",
-    "main": "dist/@youwol/fv-context-menu.js",
+    "homepage": "https://github.com/youwol/rx-context-menu-views#README.md",
+    "main": "dist/@youwol/rx-context-menu-views.js",
     "types": "src/index.ts",
     "scripts": {
         "clean": "del-cli dist",

@@ -48,18 +48,18 @@ const mainEntry : {entryFile: string,loadDependencies:string[]} = {
 const secondaryEntries : {[k:string]:{entryFile: string, name: string, loadDependencies:string[]}}= {}
 
 const entries = {
-     '@youwol/fv-context-menu': './index.ts',
-    ...Object.values(secondaryEntries).reduce( (acc,e) => ({...acc, [`@youwol/fv-context-menu/${e.name}`]:e.entryFile}), {})
+     '@youwol/rx-context-menu-views': './index.ts',
+    ...Object.values(secondaryEntries).reduce( (acc,e) => ({...acc, [`@youwol/rx-context-menu-views/${e.name}`]:e.entryFile}), {})
 }
 export const setup = {
-    name:'@youwol/fv-context-menu',
-        assetId:'QHlvdXdvbC9mdi1jb250ZXh0LW1lbnU=',
+    name:'@youwol/rx-context-menu-views',
+        assetId:'QHlvdXdvbC9yeC1jb250ZXh0LW1lbnUtdmlld3M=',
     version:'0.2.0-wip',
     shortDescription:"Context-menu using rx-vdom.",
-    developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/fv-context-menu&tab=doc',
-    npmPackage:'https://www.npmjs.com/package/@youwol/fv-context-menu',
-    sourceGithub:'https://github.com/youwol/fv-context-menu',
-    userGuide:'https://l.youwol.com/doc/@youwol/fv-context-menu',
+    developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/rx-context-menu-views&tab=doc',
+    npmPackage:'https://www.npmjs.com/package/@youwol/rx-context-menu-views',
+    sourceGithub:'https://github.com/youwol/rx-context-menu-views',
+    userGuide:'https://l.youwol.com/doc/@youwol/rx-context-menu-views',
     apiVersion:'02',
     runTimeDependencies,
     externals,
@@ -85,7 +85,7 @@ export const setup = {
             modules,
             scripts,
         }).then(() => {
-            return window[`@youwol/fv-context-menu_APIv02`]
+            return window[`@youwol/rx-context-menu-views_APIv02`]
         })
     },
     installAuxiliaryModule: ({name, cdnClient, installParameters}:{
@@ -100,7 +100,7 @@ export const setup = {
         const parameters = installParameters || {}
         const scripts = [
             ...(parameters.scripts || []),
-            `@youwol/fv-context-menu#0.2.0-wip~dist/@youwol/fv-context-menu/${entry.name}.js`
+            `@youwol/rx-context-menu-views#0.2.0-wip~dist/@youwol/rx-context-menu-views/${entry.name}.js`
         ]
         const modules = [
             ...(parameters.modules || []),
@@ -111,7 +111,7 @@ export const setup = {
             modules,
             scripts,
         }).then(() => {
-            return window[`@youwol/fv-context-menu/${entry.name}_APIv02`]
+            return window[`@youwol/rx-context-menu-views/${entry.name}_APIv02`]
         })
     },
     getCdnDependencies(name?: string){
