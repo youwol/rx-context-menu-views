@@ -38,7 +38,7 @@ export namespace ContextMenu {
         }: {
             state: State
             zIndex?: number
-            [_key: string]: any
+            [_key: string]: any // eslint-disable-line @typescript-eslint/no-explicit-any  -- This is Hotfix
         }) {
             this.state = state
             this.subscriptions.push(
