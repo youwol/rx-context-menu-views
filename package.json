@@ -1,5 +1,5 @@
 {
-    "name": "@youwol/fv-context-menu",
+    "name": "@youwol/rx-context-menu-views",
     "description": "Context-menu using rx-vdom.",
     "version": "0.2.0-wip",
     "author": "greinisch@youwol.com",
