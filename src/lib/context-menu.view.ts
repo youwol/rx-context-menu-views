@@ -1,13 +1,13 @@
 import { Observable, ReplaySubject, Subscription } from 'rxjs'
 import { map, tap } from 'rxjs/operators'
-import { render, VirtualDOM } from '@youwol/flux-view'
+import { AnyVirtualDOM, render, VirtualDOM } from '@youwol/rx-vdom'
 
 export namespace ContextMenu {
     export type Event = 'displayed' | 'removed'
 
     export abstract class State {
         public readonly content$: Observable<{
-            content: VirtualDOM
+            content: AnyVirtualDOM
             event: MouseEvent
         }>
         public readonly event$ = new ReplaySubject<Event>(1)
@@ -23,10 +23,11 @@ export namespace ContextMenu {
             )
         }
 
-        abstract dispatch(ev: MouseEvent): VirtualDOM
+        abstract dispatch(ev: MouseEvent): AnyVirtualDOM
     }
 
-    export class View implements VirtualDOM {
+    export class View implements VirtualDOM<'div'> {
+        tag: 'div'
         state: State
         subscriptions = new Array<Subscription>()
 
@@ -49,7 +50,8 @@ export namespace ContextMenu {
                         ...(rest.style || {}),
                     }
 
-                    let wrapped = {
+                    const wrapped: VirtualDOM<'div'> = {
+                        tag: 'div',
                         style: {
                             position: 'fixed',
                             top: '0px',
@@ -69,7 +71,7 @@ export namespace ContextMenu {
                             ev.preventDefault()
                         },
                     }
-                    let div = render(wrapped)
+                    const div = render(wrapped)
 
                     document.body.appendChild(div)
                     this.state.event$.next('displayed')
