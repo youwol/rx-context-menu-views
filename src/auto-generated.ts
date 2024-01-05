@@ -40,9 +40,9 @@ const exportedSymbols = {
 export const setup = {
     name:'@youwol/fv-context-menu',
         assetId:'QHlvdXdvbC9mdi1jb250ZXh0LW1lbnU=',
-    version:'0.1.1',
-    shortDescription:"Context-menu using flux-view.",
-    developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/fv-context-menu',
+    version:'0.2.0-wip',
+    shortDescription:"Context-menu using rx-vdom.",
+    developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/fv-context-menu&tab=doc',
     npmPackage:'https://www.npmjs.com/package/@youwol/fv-context-menu',
     sourceGithub:'https://github.com/youwol/fv-context-menu',
     userGuide:'https://l.youwol.com/doc/@youwol/fv-context-menu',

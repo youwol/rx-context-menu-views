@@ -1,7 +1,7 @@
 {
     "name": "@youwol/fv-context-menu",
-    "description": "Context-menu using flux-view.",
-    "version": "0.1.1",
+    "description": "Context-menu using rx-vdom.",
+    "version": "0.2.0-wip",
     "author": "greinisch@youwol.com",
     "homepage": "https://github.com/youwol/fv-context-menu#README.md",
     "main": "dist/@youwol/fv-context-menu.js",
