@@ -1,6 +1,6 @@
 # @youwol/fv-context-menu
 
-Context-menu using flux-view.
+Context-menu using rx-vdom.
 
 This library is part of the hybrid cloud/local ecosystem
 [YouWol](https://platform.youwol.com/applications/@youwol/platform/latest).
@@ -9,7 +9,7 @@ This library is part of the hybrid cloud/local ecosystem
 
 [Online user-guide](https://l.youwol.com/doc/@youwol/fv-context-menu)
 
-[Developers documentation](https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/fv-context-menu)
+[Developers documentation](https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/fv-context-menu&tab=doc)
 
 [Package on npm](https://www.npmjs.com/package/@youwol/fv-context-menu)
 
@@ -38,6 +38,8 @@ yarn build:prod
 ```
 
 ---
+
+<!-- no specific test configuration documented -->
 
 To run tests:
 
