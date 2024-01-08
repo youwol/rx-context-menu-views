@@ -34,11 +34,11 @@ export namespace ContextMenu {
         constructor({
             state,
             zIndex,
-            ...rest
+            style,
         }: {
             state: State
             zIndex?: number
-            [_key: string]: any // eslint-disable-line @typescript-eslint/no-explicit-any  -- This is Hotfix
+            style?: { [_key: string]: unknown }
         }) {
             this.state = state
             this.subscriptions.push(
@@ -47,7 +47,7 @@ export namespace ContextMenu {
                         position: 'absolute',
                         left: `${event.clientX - 10}px`,
                         top: `${event.clientY - 10}px`,
-                        ...(rest.style || {}),
+                        ...(style ?? {}),
                     }
 
                     const wrapped: VirtualDOM<'div'> = {
