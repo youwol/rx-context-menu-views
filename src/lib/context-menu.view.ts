@@ -1,13 +1,13 @@
 import { Observable, ReplaySubject, Subscription } from 'rxjs'
 import { map, tap } from 'rxjs/operators'
-import { render, VirtualDOM } from '@youwol/flux-view'
+import { AnyVirtualDOM, render, VirtualDOM } from '@youwol/rx-vdom'
 
 export namespace ContextMenu {
     export type Event = 'displayed' | 'removed'
 
     export abstract class State {
         public readonly content$: Observable<{
-            content: VirtualDOM
+            content: AnyVirtualDOM
             event: MouseEvent
         }>
         public readonly event$ = new ReplaySubject<Event>(1)
@@ -23,21 +23,22 @@ export namespace ContextMenu {
             )
         }
 
-        abstract dispatch(ev: MouseEvent): VirtualDOM
+        abstract dispatch(ev: MouseEvent): AnyVirtualDOM
     }
 
-    export class View implements VirtualDOM {
+    export class View implements VirtualDOM<'div'> {
+        tag: 'div'
         state: State
         subscriptions = new Array<Subscription>()
 
         constructor({
             state,
             zIndex,
-            ...rest
+            style,
         }: {
             state: State
             zIndex?: number
-            [_key: string]: any
+            style?: { [_key: string]: unknown }
         }) {
             this.state = state
             this.subscriptions.push(
@@ -46,10 +47,11 @@ export namespace ContextMenu {
                         position: 'absolute',
                         left: `${event.clientX - 10}px`,
                         top: `${event.clientY - 10}px`,
-                        ...(rest.style || {}),
+                        ...(style ?? {}),
                     }
 
-                    let wrapped = {
+                    const wrapped: VirtualDOM<'div'> = {
+                        tag: 'div',
                         style: {
                             position: 'fixed',
                             top: '0px',
@@ -69,7 +71,7 @@ export namespace ContextMenu {
                             ev.preventDefault()
                         },
                     }
-                    let div = render(wrapped)
+                    const div = render(wrapped)
 
                     document.body.appendChild(div)
                     this.state.event$.next('displayed')
