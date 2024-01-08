@@ -1,7 +1,7 @@
 {
     "name": "@youwol/rx-context-menu-views",
     "description": "Context-menu using rx-vdom.",
-    "version": "0.2.0",
+    "version": "0.2.1-wip",
     "author": "greinisch@youwol.com",
     "homepage": "https://github.com/youwol/rx-context-menu-views#README.md",
     "main": "dist/@youwol/rx-context-menu-views.js",
