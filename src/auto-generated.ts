@@ -54,7 +54,7 @@ const entries = {
 export const setup = {
     name:'@youwol/rx-context-menu-views',
         assetId:'QHlvdXdvbC9yeC1jb250ZXh0LW1lbnUtdmlld3M=',
-    version:'0.2.0-wip',
+    version:'0.2.0',
     shortDescription:"Context-menu using rx-vdom.",
     developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/rx-context-menu-views&tab=doc',
     npmPackage:'https://www.npmjs.com/package/@youwol/rx-context-menu-views',
@@ -100,7 +100,7 @@ export const setup = {
         const parameters = installParameters || {}
         const scripts = [
             ...(parameters.scripts || []),
-            `@youwol/rx-context-menu-views#0.2.0-wip~dist/@youwol/rx-context-menu-views/${entry.name}.js`
+            `@youwol/rx-context-menu-views#0.2.0~dist/@youwol/rx-context-menu-views/${entry.name}.js`
         ]
         const modules = [
             ...(parameters.modules || []),
